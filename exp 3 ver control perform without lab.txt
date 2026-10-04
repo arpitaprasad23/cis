@@ -1,0 +1,103 @@
+
+EXPERIMENT 3
+Experiment: Static Website Using Git + Amazon S3
+Step 1: Create index.html
+Open Notepad and enter this code:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My AWS Static Website</title>
+</head>
+<body>
+    <h1>Welcome to My AWS Static Website</h1>
+    <p>This website is stored in Amazon S3.</p>
+    <p>Version 1 of my website.</p>
+</body>
+</html>
+Save it as index.html.
+Step 2: Create a Git repository
+Open Command Prompt in the folder where you saved your file.
+cd Downloads
+git init
+git config --global user.name "Your Name"
+git config --global user.email "your-email@example.com"
+Use your own name and email for Git configuration.
+Step 3: Create Version 1
+git add index.html
+git commit -m "Initial static website"
+git log --oneline
+This creates the first Git commit.
+Step 4: Create Version 2
+Edit index.html and change its content to:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My AWS Static Website</title>
+</head>
+<body>
+    <h1>Welcome to My Updated AWS Static Website</h1>
+    <p>This website is stored in Amazon S3.</p>
+    <p>Version 2 of my website.</p>
+</body>
+</html>
+Save the file and run:
+git add index.html
+git commit -m "Updated static website"
+git log --oneline
+You should now see two commits.
+Step 5: Upload Version 1 to S3
+Open AWS Console → Amazon S3.
+Open your existing Lab 5.1 bucket.
+Click Objects → Upload → Add files.
+Select index.html containing Version 1.
+Click Upload.
+Step 6: Enable S3 Versioning
+Open your bucket's Properties tab.
+Find Bucket Versioning.
+Click Edit → Enable → Save changes.
+You have already completed this step.
+Step 7: Upload Version 2
+Return to Objects.
+Click Upload → Add files.
+Select the updated index.html containing Version 2.
+Click Upload.
+S3 creates another version of the same object because versioning is enabled.
+Step 8: Show the versions
+Go to Objects.
+Turn on Show versions.
+You will see multiple entries named index.html.
+In your practical, you uploaded additional versions while testing, so your bucket eventually displayed five versions. That is fine; you do not need to delete them.
+Step 9: Static Website Hosting
+Open Properties.
+Scroll to Static website hosting.
+Click Edit.
+Ensure hosting is enabled.
+Enter index.html as the index document.
+Save changes.
+Open the bucket website endpoint to verify the website.
+Step 10: Download and restore an older version
+Since you already performed this part:
+Open index.html.
+Select the Versions tab.
+Select an older version and click Download.
+Return to the bucket's Objects page.
+Click Upload and select the downloaded index.html.
+Upload it to the same bucket.
+Open the Versions tab again and verify the new current version.
+Uploading the downloaded file creates a new current version; it does not remove the existing versions.
+Final screenshots for your practical journal
+HTML code for index.html
+Git repository initialized
+Git log showing two commits
+S3 bucket containing index.html
+Bucket Versioning enabled
+S3 Objects page showing versions
+Static website hosting settings
+Website endpoint opened successfully
+Older version downloaded and uploaded again
+4 of 9 completed
+Copy checklist
+Your practical status: The S3 versioning part is completed. The Git part and the website endpoint verification should be included in your documentation if they are required by your instructor. Your existing bucket and its five versions can remain as they are.
+
